@@ -11,12 +11,12 @@ This project demonstrates an intelligent Air Pollution Management System built u
 * Car Agents: Represent mobile pollution sources; autonomously reroute to avoid high-pollution areas.
 * Factory Agents: Stationary agents generating pollution and adapting emissions based on environmental needs.
 * Tree Agents: Environmental entities that absorb pollution but degrade in highly toxic conditions.
-* Pollution Monitoring Agents: Monitor and diffuse pollution dynamically across the grid.
+* Pollution Monitoring Agents: Monitor and diffuse pollution dynamically across the grid by communicating.
 
 ## Project Overview
 * BDI Architecture: Agents leverage the Belief-Desire-Intention model for decision-making and actions.
-* Emergent Behavior: Observe complex system dynamics, such as ecosystem degradation and traffic pattern shifts, resulting from agent interactions.
-* Butterfly Effect: Small changes in agent behavior, such as factory emission spikes, lead to large-scale impacts on the system.
+* Emergent Behavior: Observe complex system dynamics, trees dying as a result of high toxic air pollution, resulting from agent interactions.
+* Butterfly Effect: Small changes in agent behavior, such as factory emission spikes, lead to large-scale high air pollution on the system.
 
 ## System Overview:
 * Inputs: Environment size, agent configurations, initial pollution levels.
@@ -30,11 +30,18 @@ This project demonstrates an intelligent Air Pollution Management System built u
 * Communication: Inter-agent communication ensures information flow and coordinated actions.
 * Adaptability: System adjusts dynamically to changing pollution conditions and stochastic factors.
 
-![initial-state](https://github.com/user-attachments/assets/4f71ac7f-8140-4f8e-b20e-9427bd1439cb)
-![final-state](https://github.com/user-attachments/assets/1897077d-7f8c-4efc-8acd-eb4163c51c42)
+![Screenshot 2024-12-09 182144](https://github.com/user-attachments/assets/cb0521d4-aae5-4c96-88c0-46cda02f3734)
+Terminal window showing agent communication
 
+![initial-state](https://github.com/user-attachments/assets/4f71ac7f-8140-4f8e-b20e-9427bd1439cb)
+Initial State - the city is not polluted and it had good air quality
+
+![final-state](https://github.com/user-attachments/assets/1897077d-7f8c-4efc-8acd-eb4163c51c42)
+Final State - the smoke from factories and vehicles have increased air pollution
 
 ## Technologies Used:
 * Framework: MESA (Python-based agent-based modeling framework)
 * Architecture: BDI (Belief-Desire-Intention)
 * Visualization: Real-time pollution heatmaps and agent interactions
+
+  
