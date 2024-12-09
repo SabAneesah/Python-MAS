@@ -29,6 +29,9 @@ This project demonstrates an intelligent Air Pollution Management System built u
 * Autonomy: Agents operate independently, responding to real-time changes.
 * Communication: Inter-agent communication ensures information flow and coordinated actions.
 * Adaptability: System adjusts dynamically to changing pollution conditions and stochastic factors.
+  
+![Screenshot 2024-12-09 183354](https://github.com/user-attachments/assets/5c2c1bdc-2610-4873-b594-fbefeeea6153)
+Terminal window showing user input
 
 ![Screenshot 2024-12-09 182144](https://github.com/user-attachments/assets/cb0521d4-aae5-4c96-88c0-46cda02f3734)
 Terminal window showing agent communication
