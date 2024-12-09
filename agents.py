@@ -19,11 +19,12 @@ class PollutionCell(Agent):
         neighbors = self.model.grid.get_neighborhood(self.pos, moore=True, include_center=False)
         total_pollution = sum([agent.pollution for neighbor in neighbors for agent in self.model.grid.get_cell_list_contents(neighbor) if isinstance(agent, PollutionCell)]) + self.pollution
         self.pollution = total_pollution / (len(neighbors) + 1)
+        print(f"Pollution in cell {self.pos} after diffusion: {self.pollution}")
 
     def advance(self):
         # Reduce pollution slightly over time
         self.pollution *= 0.9
-
+        print(f"Pollution in cell {self.pos} reduced to: {self.pollution}")
 
 class CarAgent(Agent):
     """A car that moves around and generates pollution."""
@@ -40,7 +41,9 @@ class CarAgent(Agent):
         for agent in self.model.grid.get_cell_list_contents(new_position):
             if isinstance(agent, PollutionCell):
                 agent.pollution += 10
+                print(f"Car {self.unique_id} moved to {new_position} and added 10 pollution to the cell.")
 
+        print(f"Car {self.unique_id} moved to {new_position}.")
 
 class FactoryAgent(Agent):
     """A stationary factory that generates pollution."""
@@ -52,7 +55,7 @@ class FactoryAgent(Agent):
         for agent in self.model.grid.get_cell_list_contents(self.pos):
             if isinstance(agent, PollutionCell):
                 agent.pollution += 20
-
+                print(f"Factory {self.unique_id} at {self.pos} added 20 pollution to the cell.")
 
 class TreeAgent(Agent):
     """A tree that reduces pollution in its cell."""
@@ -66,15 +69,19 @@ class TreeAgent(Agent):
             for agent in self.model.grid.get_cell_list_contents(self.pos):
                 if isinstance(agent, PollutionCell):
                     agent.pollution *= 0.7
+                    print(f"Tree {self.unique_id} at {self.pos} reduced pollution by 30% in the cell.")
+
 
             # Check if pollution exceeds threshold for survival
             for agent in self.model.grid.get_cell_list_contents(self.pos):
                 if isinstance(agent, PollutionCell) and agent.pollution > 30:
                     self.alive = False
+                    print(f"Tree {self.unique_id} at {self.pos} has died due to high pollution.")
 
 
 class PollutionModel(Model):
-    """A model with agents that generate or reduce pollution."""
+    """ A model with agents that generate or reduce pollution.\n\n
+    There are 4 agents - Car agents, Factory agents, Tree agents, Air Pollution Monitoring agents"""
     def __init__(self, width, height, num_cars, num_factories, num_trees):
         super().__init__()
         self.grid = MultiGrid(width, height, torus=False)
